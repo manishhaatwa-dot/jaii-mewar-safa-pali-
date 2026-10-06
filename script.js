@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* ===============================
+       YEAR
+    =============================== */
+
     const yearElement = document.getElementById("current-year");
 
     if (yearElement) {
@@ -7,29 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
+    /* ===============================
        GITHUB SETTINGS
-    ===================================================== */
+    =============================== */
 
     const GITHUB_OWNER = "manishhaatwa-dot";
-
-    // GitHub par screenshot me exact repository name
     const GITHUB_REPO = "jaii-mewar-saafa-pali";
-
     const GITHUB_BRANCH = "main";
 
 
-    /* =====================================================
-       WEBSITE COLLECTIONS
-    ===================================================== */
+    /* ===============================
+       COLLECTIONS
+    =============================== */
 
     const categories = {
         saafa: "saafa-products",
         wedding: "wedding-products",
-        formal: "formal-products",
         jutti: "jutti-products"
     };
 
+
+    /* ===============================
+       IMAGE TYPES
+    =============================== */
 
     const imageExtensions = [
         ".jpg",
@@ -40,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
 
-    /* =====================================================
-       LOAD PRODUCTS FROM GITHUB
-    ===================================================== */
+    /* ===============================
+       LOAD PRODUCTS
+    =============================== */
 
     async function loadProducts() {
 
@@ -51,7 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const container =
                 document.getElementById(categories[category]);
 
-            if (!container) continue;
+            if (!container) {
+                continue;
+            }
 
 
             try {
@@ -60,7 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/assets/products/${category}?ref=${GITHUB_BRANCH}`;
 
 
-                const response = await fetch(apiUrl);
+                console.log("Loading:", apiUrl);
+
+
+                const response =
+                    await fetch(apiUrl);
 
 
                 if (!response.ok) {
@@ -72,22 +82,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                const files = await response.json();
+                const files =
+                    await response.json();
 
 
-                const images = files.filter(file => {
+                const images =
+                    files.filter(file => {
 
-                    return (
-                        file.type === "file" &&
-                        imageExtensions.some(ext =>
-                            file.name.toLowerCase().endsWith(ext)
-                        )
-                    );
+                        return (
+                            file.type === "file" &&
+                            file.name &&
+                            imageExtensions.some(ext =>
+                                file.name
+                                    .toLowerCase()
+                                    .endsWith(ext)
+                            )
+                        );
 
-                });
+                    });
 
 
-                renderProducts(container, images);
+                console.log(
+                    `${category}:`,
+                    images.length,
+                    "images found"
+                );
+
+
+                renderProducts(
+                    container,
+                    images
+                );
 
 
             } catch (error) {
@@ -112,11 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
+    /* ===============================
        RENDER PRODUCTS
-    ===================================================== */
+    =============================== */
 
-    function renderProducts(container, images) {
+    function renderProducts(
+        container,
+        images
+    ) {
 
         container.innerHTML = "";
 
@@ -136,12 +164,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         images.forEach(file => {
 
+            /* =========================
+               CARD
+            ========================= */
+
             const card =
                 document.createElement("div");
 
             card.className =
                 "product-card";
 
+
+            /* =========================
+               IMAGE WRAPPER
+            ========================= */
 
             const imageWrap =
                 document.createElement("div");
@@ -150,6 +186,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "product-image-wrap";
 
 
+            /* =========================
+               IMAGE
+            ========================= */
+
             const image =
                 document.createElement("img");
 
@@ -157,21 +197,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 "product-image";
 
 
-            /* =================================================
-               IMPORTANT:
-               GitHub API ka direct download_url use kar rahe hain.
-               Hindi filenames bhi properly load honge.
-            ================================================= */
+            /*
+               GitHub API ka download_url
+               Hindi filenames ke liye safe hai.
+            */
 
-            image.src = file.download_url;
-
-
-            image.loading = "lazy";
+            image.src =
+                file.download_url;
 
 
-            /* =================================================
+            image.loading =
+                "lazy";
+
+
+            /* =========================
                PRODUCT NAME
-            ================================================= */
+            ========================= */
 
             let productName =
                 file.name
@@ -185,9 +226,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 `${productName} - Jai Mewar Saafa House Pali`;
 
 
-            /* =================================================
+            /* =========================
                IMAGE ERROR
-            ================================================= */
+            ========================= */
 
             image.onerror = () => {
 
@@ -212,9 +253,9 @@ document.addEventListener("DOMContentLoaded", () => {
             imageWrap.appendChild(image);
 
 
-            /* =================================================
-               PRODUCT NAME
-            ================================================= */
+            /* =========================
+               NAME
+            ========================= */
 
             const name =
                 document.createElement("div");
@@ -226,24 +267,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 productName;
 
 
-            /* =================================================
-               CARD
-            ================================================= */
+            /* =========================
+               ADD TO CARD
+            ========================= */
 
-            card.appendChild(imageWrap);
+            card.appendChild(
+                imageWrap
+            );
 
-            card.appendChild(name);
+            card.appendChild(
+                name
+            );
 
-            container.appendChild(card);
+
+            container.appendChild(
+                card
+            );
 
         });
 
     }
 
 
-    /* =====================================================
+    /* ===============================
        START
-    ===================================================== */
+    =============================== */
 
     loadProducts();
 
