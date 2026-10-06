@@ -1,0 +1,1200 @@
+/* =====================================================
+   JAI MEWAR SAAFA HOUSE
+   Pali, Rajasthan
+   Light Red Wedding Theme
+===================================================== */
+
+:root {
+    --red: #c62832;
+    --dark-red: #991f27;
+    --light-red: #e34a53;
+    --soft-red: #fff1f2;
+    --red-border: #f0b8bc;
+
+    --white: #ffffff;
+    --cream: #fffaf9;
+    --text: #3d2929;
+    --muted: #766565;
+
+    --shadow: 0 8px 25px rgba(160, 30, 40, 0.10);
+    --radius: 18px;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(198, 40, 50, 0.055),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fff8f8 50%,
+            #fff3f4 100%
+        );
+
+    color: var(--text);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+    width: 100%;
+    min-height: 82px;
+
+    padding: 12px 6%;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid rgba(198, 40, 50, 0.14);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(100, 20, 20, 0.06);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 54px;
+    height: 54px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d33a43,
+            #ef7379
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    border: 2px solid #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(198, 40, 50, 0.18);
+}
+
+.brand-text h1 {
+    color: var(--red);
+
+    font-size: clamp(20px, 3vw, 31px);
+
+    line-height: 1.1;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+.brand-text p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    letter-spacing: 0.8px;
+
+    margin-top: 3px;
+}
+
+
+/* HEADER BUTTONS */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    transition: 0.25s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-3px);
+}
+
+.call-btn {
+    background: var(--red);
+}
+
+.whatsapp-btn {
+    background: #20a95a;
+}
+
+.instagram-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #f9ce34,
+            #ee2a7b,
+            #6228d7
+        );
+}
+
+
+/* =====================================================
+   OWNER PROFILE
+===================================================== */
+
+.owner-section {
+    width: min(1180px, 92%);
+
+    margin: 35px auto 25px;
+
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #fff6f6
+        );
+
+    border: 1px solid var(--red-border);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    display: grid;
+
+    grid-template-columns: 230px 1fr;
+
+    align-items: center;
+
+    gap: 35px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.owner-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border: 2px solid rgba(198, 40, 50, 0.07);
+
+    border-radius: 50%;
+
+    right: -70px;
+    top: -80px;
+
+    pointer-events: none;
+}
+
+.owner-photo {
+    width: 210px;
+    height: 245px;
+
+    margin: auto;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    border: 5px solid #ffffff;
+
+    outline: 2px solid #df777d;
+
+    box-shadow:
+        0 8px 22px rgba(100, 20, 20, 0.16);
+
+    background: #fcebed;
+
+    position: relative;
+}
+
+.owner-photo img,
+.owner-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.owner-info {
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    display: inline-block;
+
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.owner-info h2 {
+    color: var(--red);
+
+    font-size: clamp(28px, 4vw, 46px);
+
+    line-height: 1.15;
+}
+
+.owner-business {
+    color: #b83a42;
+
+    font-weight: bold;
+
+    font-size: 20px;
+
+    margin: 5px 0 12px;
+}
+
+.owner-description {
+    max-width: 650px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+}
+
+
+/* OWNER CONTACT */
+
+.quick-contact {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.quick-contact a,
+.bottom-buttons a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+.quick-contact a:first-child {
+    color: #ffffff;
+
+    background: var(--red);
+}
+
+.quick-contact a:last-child {
+    color: #ffffff;
+
+    background: #20a95a;
+}
+
+.quick-contact a:hover,
+.bottom-buttons a:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 16px rgba(120, 20, 20, 0.15);
+}
+
+
+/* =====================================================
+   INFORMATION CARDS
+===================================================== */
+
+.info-section {
+    width: min(1180px, 92%);
+
+    margin: 25px auto 45px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid var(--red-border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    display: flex;
+
+    gap: 18px;
+
+    box-shadow:
+        0 5px 18px rgba(100, 20, 20, 0.07);
+}
+
+.info-icon {
+    flex: 0 0 50px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 14px;
+
+    background: var(--red);
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.info-card h3 {
+    color: var(--red);
+
+    font-size: 21px;
+
+    margin-bottom: 6px;
+}
+
+.info-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* CONTACT LINKS */
+
+.contact-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.contact-links a {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: var(--soft-red);
+
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    border: 1px solid rgba(198, 40, 50, 0.10);
+}
+
+
+/* =====================================================
+   CLICKABLE LOCATION
+===================================================== */
+
+.location-card {
+    position: relative;
+
+    z-index: 10;
+
+    cursor: pointer;
+
+    pointer-events: auto !important;
+
+    transition: 0.25s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(120, 20, 20, 0.13);
+}
+
+.location-icon {
+    background: var(--red) !important;
+
+    color: #ffffff !important;
+}
+
+.location-icon i {
+    color: #ffffff !important;
+
+    pointer-events: none;
+}
+
+.location-hint {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 10px;
+
+    padding: 6px 10px;
+
+    border-radius: 15px;
+
+    background: var(--red);
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.location-hint i {
+    color: #ffffff;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   INSTAGRAM BUTTON
+===================================================== */
+
+.owner-instagram-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    padding: 9px 14px;
+
+    border-radius: 25px;
+
+    color: #ffffff !important;
+
+    background:
+        linear-gradient(
+            45deg,
+            #f58529,
+            #dd2a7b,
+            #8134af,
+            #515bd4
+        );
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.owner-instagram-btn i {
+    color: #ffffff !important;
+
+    font-size: 17px;
+}
+
+.owner-instagram-btn:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.section-heading > span {
+    color: var(--red);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    color: var(--red);
+
+    font-size: clamp(28px, 4vw, 40px);
+
+    line-height: 1.2;
+
+    margin-top: 3px;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    margin-top: 4px;
+
+    font-size: 15px;
+}
+
+.heading-line {
+    width: 75px;
+
+    height: 3px;
+
+    background: var(--red);
+
+    margin: 10px auto 0;
+
+    position: relative;
+}
+
+.heading-line::before,
+.heading-line::after {
+    content: "◆";
+
+    position: absolute;
+
+    top: -8px;
+
+    color: var(--red);
+
+    font-size: 8px;
+}
+
+.heading-line::before {
+    left: -13px;
+}
+
+.heading-line::after {
+    right: -13px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-section {
+    width: min(1000px, 92%);
+
+    margin: 0 auto 55px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff2f3
+        );
+
+    border-radius: 22px;
+
+    border: 1px solid var(--red-border);
+
+    box-shadow: var(--shadow);
+}
+
+.about-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-content p {
+    color: var(--muted);
+
+    margin: 10px 0;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   COLLECTION SECTIONS
+===================================================== */
+
+.collection-section {
+    width: min(1200px, 94%);
+
+    margin: 0 auto 60px;
+}
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 17px;
+}
+
+.product-card {
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--red-border);
+
+    box-shadow:
+        0 5px 15px rgba(100, 20, 20, 0.07);
+
+    transition: 0.28s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 25px rgba(100, 20, 20, 0.13);
+}
+
+.product-image-wrap {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    background: #fff0f1;
+
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-name {
+    text-align: center;
+
+    color: var(--red);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    padding: 12px 8px 14px;
+
+    min-height: 48px;
+}
+
+
+/* =====================================================
+   EMPTY COLLECTION
+===================================================== */
+
+.empty-collection {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    border: 1px dashed rgba(198, 40, 50, 0.28);
+
+    border-radius: 15px;
+
+    color: var(--muted);
+
+    background: rgba(255,255,255,0.65);
+}
+
+.empty-collection i {
+    color: var(--red);
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   BOTTOM CONTACT
+===================================================== */
+
+.bottom-contact {
+    margin-top: 20px;
+
+    padding: 55px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a9252d,
+            #c93640
+        );
+
+    color: #ffffff;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.bottom-contact::before {
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 180px;
+
+    color: rgba(255,255,255,0.06);
+
+    left: 5%;
+
+    top: -60px;
+
+    pointer-events: none;
+}
+
+.bottom-contact::after {
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 180px;
+
+    color: rgba(255,255,255,0.06);
+
+    right: 5%;
+
+    bottom: -90px;
+
+    pointer-events: none;
+}
+
+.bottom-contact h2 {
+    color: #ffffff;
+
+    font-size: clamp(28px, 4vw, 42px);
+}
+
+.bottom-contact p {
+    margin-top: 5px;
+
+    opacity: 0.90;
+}
+
+.bottom-buttons {
+    margin-top: 22px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.bottom-buttons a {
+    background: #ffffff;
+
+    color: var(--red);
+}
+
+.bottom-buttons .location-btn {
+    background: #b71c26 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #b71c26;
+}
+
+.bottom-buttons .location-btn i {
+    color: #ffffff !important;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #63151b;
+
+    color: #f9dfe1;
+
+    text-align: center;
+
+    padding: 25px 15px;
+}
+
+.footer-brand {
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+footer p {
+    font-size: 13px;
+
+    margin: 3px 0 7px;
+
+    opacity: 0.8;
+}
+
+footer small {
+    font-size: 11px;
+
+    opacity: 0.65;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .owner-section {
+        grid-template-columns: 190px 1fr;
+
+        padding: 25px;
+    }
+
+    .owner-photo {
+        width: 175px;
+        height: 215px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        min-height: 70px;
+
+        padding: 9px 4%;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 22px;
+    }
+
+    .brand-text h1 {
+        font-size: 17px;
+
+        letter-spacing: 0.4px;
+    }
+
+    .brand-text p {
+        font-size: 8px;
+
+        letter-spacing: 0.4px;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .icon-btn {
+        width: 35px;
+        height: 35px;
+
+        font-size: 16px;
+    }
+
+
+    .owner-section {
+        width: 94%;
+
+        margin-top: 20px;
+
+        padding: 20px;
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .owner-photo {
+        width: 155px;
+        height: 190px;
+    }
+
+    .owner-info h2 {
+        font-size: 28px;
+    }
+
+    .owner-business {
+        font-size: 17px;
+    }
+
+    .owner-description {
+        font-size: 14px;
+    }
+
+    .quick-contact {
+        justify-content: center;
+    }
+
+
+    .info-section {
+        width: 94%;
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+        margin-bottom: 35px;
+    }
+
+    .info-card {
+        padding: 18px;
+    }
+
+
+    .about-section {
+        width: 94%;
+
+        padding: 25px 18px;
+
+        margin-bottom: 45px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+    }
+
+
+    .collection-section {
+        width: 94%;
+
+        margin-bottom: 45px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .product-card {
+        border-radius: 12px;
+    }
+
+    .product-name {
+        font-size: 13px;
+
+        padding: 9px 5px 11px;
+
+        min-height: 40px;
+    }
+
+
+    .section-heading {
+        margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+
+    .bottom-contact {
+        padding: 42px 15px;
+    }
+
+    .bottom-buttons {
+        gap: 8px;
+    }
+
+    .bottom-buttons a {
+        padding: 9px 14px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 390px) {
+
+    .brand-text p {
+        display: none;
+    }
+
+    .brand-text h1 {
+        font-size: 15px;
+    }
+
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+
+        font-size: 14px;
+    }
+
+    .owner-info h2 {
+        font-size: 25px;
+    }
+
+    .product-grid {
+        gap: 8px;
+    }
+
+    .product-name {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   CLICK SAFETY
+===================================================== */
+
+a {
+    position: relative;
+
+    z-index: 20;
+
+    pointer-events: auto !important;
+
+    cursor: pointer;
+}
+
+a i {
+    pointer-events: none;
+}
