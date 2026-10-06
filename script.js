@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================== */
 
     const GITHUB_OWNER = "manishhaatwa-dot";
-    const GITHUB_REPO = "Jai-Mewar-Saafa";
+    const GITHUB_REPO = "Jaii-Mewar-Saafa";
     const GITHUB_BRANCH = "main";
 
 
