@@ -1,25 +1,24 @@
-/* =====================================================
-   JAI MEWAR SAAFA HOUSE
-   RESPONSIVE STYLE
-===================================================== */
-
 :root {
     --red: #c62832;
-    --dark-red: #991f27;
-    --light-red: #e34a53;
-    --soft-red: #fff1f2;
-    --very-light: #fff8f8;
-    --text: #333333;
-    --muted: #777777;
+    --dark-red: #8f2730;
+    --light-red: #e85a63;
+
+    --pink: #fff1f3;
+    --pink-2: #fff7f8;
+
+    --text: #3b3031;
+    --muted: #777;
+
     --white: #ffffff;
-    --border: #f0d8da;
-    --shadow: 0 8px 25px rgba(198, 40, 50, 0.08);
+
+    --border: #edd7da;
+
+    --shadow:
+        0 8px 28px rgba(150, 40, 50, 0.08);
 }
 
 
-/* =====================================================
-   RESET
-===================================================== */
+/* ================= RESET ================= */
 
 * {
     margin: 0;
@@ -31,13 +30,13 @@
 html {
     width: 100%;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
 
 body {
     width: 100%;
     min-width: 0;
+
     overflow-x: hidden;
 
     font-family:
@@ -51,48 +50,48 @@ body {
         linear-gradient(
             180deg,
             #fffafa 0%,
-            #ffffff 45%,
-            #fff5f6 100%
+            #ffffff 50%,
+            #fff4f5 100%
         );
 
     line-height: 1.6;
 }
 
 
-/* =====================================================
-   LINKS
-===================================================== */
-
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+
+/* ================= HEADER ================= */
 
 .site-header {
     width: 100%;
-    background: var(--white);
+
+    background: #ffffff;
+
     border-bottom: 1px solid var(--border);
 }
 
 
-.header-content {
-    width: min(1100px, 100%);
-    margin: 0 auto;
+.header-inner {
+    width: min(1120px, 100%);
 
-    padding: 28px 24px;
+    margin: auto;
+
+    padding: 25px 25px;
 
     display: flex;
+
     align-items: center;
-    gap: 18px;
+
+    gap: 17px;
 }
 
 
-.brand-icon {
+.brand-logo {
     width: 58px;
     height: 58px;
 
@@ -101,6 +100,7 @@ a {
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -121,51 +121,56 @@ a {
 }
 
 
-.header-content h1 {
-    font-size: 30px;
-    line-height: 1.2;
+.brand-text h1 {
     color: var(--dark-red);
+
+    font-size: 30px;
+
+    line-height: 1.2;
 }
 
 
-.header-content p {
-    margin-top: 4px;
-    color: var(--muted);
-    font-size: 15px;
+.brand-text p {
+    margin-top: 3px;
+
+    color: #777;
+
+    font-size: 14px;
 }
 
 
-/* =====================================================
-   MAIN
-===================================================== */
+
+/* ================= MAIN ================= */
 
 main {
-    width: 100%;
-    max-width: 1100px;
+    width: min(1120px, 100%);
 
-    margin: 0 auto;
+    margin: auto;
 
-    padding: 0 24px;
+    padding: 0 25px;
 }
 
 
-/* =====================================================
-   PROFILE
-===================================================== */
+
+/* ================= PROFILE ================= */
 
 .profile-section {
-    padding: 45px 0 30px;
+    padding: 38px 0 25px;
 }
 
 
 .profile-card {
     width: 100%;
 
-    text-align: center;
+    display: flex;
 
-    padding: 35px 25px;
+    align-items: center;
 
-    background: var(--white);
+    gap: 38px;
+
+    padding: 30px 35px;
+
+    background: white;
 
     border: 1px solid var(--border);
 
@@ -175,261 +180,333 @@ main {
 }
 
 
-.profile-icon {
-    width: 70px;
-    height: 70px;
+/* ================= OWNER PHOTO ================= */
 
-    margin: 0 auto 18px;
+.owner-photo-box {
+    width: 190px;
+    height: 220px;
 
-    border-radius: 50%;
+    flex: 0 0 190px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 7px;
 
-    background: var(--soft-red);
+    background: var(--pink);
+
+    border: 2px solid #e5b9be;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+.owner-photo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+
+
+/* ================= OWNER DETAILS ================= */
+
+.owner-details {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.owner-label {
+    color: #9b6469;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 7px;
+}
+
+
+.owner-details h2 {
+    color: #72262e;
+
+    font-size: 40px;
+
+    line-height: 1.15;
+}
+
+
+.owner-details h3 {
+    margin-top: 6px;
 
     color: var(--red);
 
-    font-size: 28px;
+    font-size: 19px;
 }
 
 
-.profile-card h2 {
-    font-size: 30px;
-    color: var(--dark-red);
-}
-
-
-.profile-subtitle {
-    margin-top: 4px;
-
-    color: var(--red);
-
-    font-weight: 600;
-}
-
-
-.profile-description {
+.owner-details p {
     max-width: 650px;
 
-    margin: 12px auto 0;
+    margin-top: 11px;
 
-    color: var(--muted);
+    color: #666;
+
+    font-size: 15px;
 }
 
 
-/* =====================================================
-   CONTACT
-===================================================== */
 
-.contact-grid {
+/* ================= OWNER BUTTONS ================= */
+
+.owner-buttons {
+    margin-top: 17px;
+
+    display: flex;
+
+    gap: 11px;
+}
+
+
+.owner-buttons a {
+    padding: 11px 20px;
+
+    border-radius: 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.call-btn {
+    background: #9d3039;
+
+    color: white;
+}
+
+
+.whatsapp-btn {
+    background: #269a5b;
+
+    color: white;
+}
+
+
+
+/* ================= INFO GRID ================= */
+
+.info-grid {
     width: 100%;
-
-    margin-top: 20px;
 
     display: grid;
 
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 15px;
+    gap: 18px;
+
+    margin-top: 18px;
 }
 
 
-.contact-card {
+
+/* ================= INFO CARD ================= */
+
+.info-card {
     min-width: 0;
 
-    padding: 18px;
+    padding: 21px;
 
-    background: var(--white);
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    background: white;
 
     border: 1px solid var(--border);
 
-    border-radius: 16px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    transition: 0.2s ease;
-}
-
-
-.contact-card:hover {
-    transform: translateY(-2px);
+    border-radius: 18px;
 
     box-shadow: var(--shadow);
 }
 
 
-.contact-card > i {
-    width: 42px;
-    height: 42px;
+.info-icon {
+    width: 48px;
+    height: 48px;
 
-    flex: 0 0 42px;
+    flex: 0 0 48px;
 
-    border-radius: 50%;
+    border-radius: 13px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    background: var(--soft-red);
+    background: var(--pink);
 
     color: var(--red);
+
+    font-size: 20px;
 }
 
 
-.contact-card span {
+.info-content {
     flex: 1;
 
     min-width: 0;
-
-    font-size: 14px;
-
-    color: var(--muted);
 }
 
 
-.contact-card strong {
-    color: var(--dark-red);
+.info-content h3 {
+    color: #4d292c;
+
+    font-size: 18px;
+
+    margin-bottom: 4px;
+}
+
+
+.info-content p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.maps-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 9px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #a52f39;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+
+/* ================= CONTACT ================= */
+
+.contact-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 7px 0;
+
+    border-bottom: 1px solid #f1e1e3;
+}
+
+
+.contact-row:last-child {
+    border-bottom: none;
+}
+
+
+.contact-row span {
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+.contact-row strong {
+    color: #8f2932;
+
+    font-size: 14px;
 
     white-space: nowrap;
 }
 
 
-/* =====================================================
-   LOCATION
-===================================================== */
 
-.location-card {
+/* ================= INSTAGRAM ================= */
+
+.instagram-btn {
     width: 100%;
 
-    margin-top: 15px;
+    margin-top: 18px;
 
-    padding: 18px 20px;
+    padding: 14px 20px;
 
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 16px;
-
-    box-shadow: var(--shadow);
-}
-
-
-.location-card > i:first-child {
-    width: 45px;
-    height: 45px;
-
-    flex: 0 0 45px;
+    border-radius: 14px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    border-radius: 50%;
-
-    background: var(--soft-red);
-
-    color: var(--red);
-
-    font-size: 20px;
-}
-
-
-.location-card div {
-    flex: 1;
-    min-width: 0;
-}
-
-
-.location-card strong {
-    display: block;
-
-    color: var(--dark-red);
-}
-
-
-.location-card span {
-    display: block;
-
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-.location-card > i:last-child {
-    color: var(--red);
-}
-
-
-/* =====================================================
-   INSTAGRAM
-===================================================== */
-
-.instagram-button {
-    width: 100%;
-
-    margin-top: 15px;
-
-    padding: 15px 20px;
-
-    border-radius: 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
+    gap: 9px;
 
     color: white;
 
-    font-weight: 600;
+    font-weight: 700;
 
     background:
         linear-gradient(
-            135deg,
+            90deg,
             #833ab4,
             #fd1d1d,
             #fcb045
         );
-
-    box-shadow:
-        0 8px 20px
-        rgba(225, 48, 108, 0.18);
 }
 
 
-.instagram-button i {
-    font-size: 20px;
-}
 
-
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* ================= SECTION ================= */
 
 .section {
     width: 100%;
 
-    padding: 40px 0;
+    padding: 38px 0;
 }
 
 
-.section-heading {
+.section-title {
     width: 100%;
 
     display: flex;
+
     align-items: center;
 
     gap: 18px;
@@ -440,30 +517,7 @@ main {
 }
 
 
-.section-heading > div {
-    flex: 0 1 auto;
-}
-
-
-.section-heading h2 {
-    color: var(--dark-red);
-
-    font-size: 30px;
-
-    line-height: 1.2;
-}
-
-
-.section-heading p {
-    margin-top: 5px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-.section-line {
+.section-title > span {
     height: 1px;
 
     flex: 1;
@@ -472,16 +526,51 @@ main {
 }
 
 
-/* =====================================================
-   ABOUT
-===================================================== */
+.section-title > div {
+    flex: 0 1 auto;
+}
+
+
+.section-title small {
+    color: #a16b70;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.section-title h2 {
+    margin-top: 3px;
+
+    color: var(--dark-red);
+
+    font-size: 30px;
+
+    line-height: 1.2;
+}
+
+
+.section-title p {
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+
+/* ================= ABOUT ================= */
 
 .about-card {
     width: 100%;
 
-    padding: 25px;
+    padding: 28px;
 
-    background: var(--white);
+    background: white;
 
     border: 1px solid var(--border);
 
@@ -494,17 +583,18 @@ main {
 
 
 .about-card p {
-    color: var(--muted);
-
     max-width: 850px;
 
     margin: auto;
+
+    color: #666;
+
+    font-size: 15px;
 }
 
 
-/* =====================================================
-   PRODUCTS GRID
-===================================================== */
+
+/* ================= PRODUCTS ================= */
 
 .products-grid {
     width: 100%;
@@ -520,17 +610,14 @@ main {
 }
 
 
-/* =====================================================
-   PRODUCT CARD
-===================================================== */
-
 .product-card {
     width: 100%;
+
     min-width: 0;
 
     overflow: hidden;
 
-    background: var(--white);
+    background: white;
 
     border: 1px solid var(--border);
 
@@ -540,9 +627,7 @@ main {
         0 5px 18px
         rgba(0, 0, 0, 0.05);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: 0.2s ease;
 }
 
 
@@ -555,17 +640,8 @@ main {
 }
 
 
-/* =====================================================
-   PRODUCT IMAGE
-===================================================== */
-
 .product-image-wrap {
     width: 100%;
-
-    /*
-       IMPORTANT:
-       Image ka size ab card se bahar nahi jayega.
-    */
 
     aspect-ratio: 4 / 5;
 
@@ -574,7 +650,9 @@ main {
     background: #fafafa;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
@@ -583,32 +661,25 @@ main {
     width: 100%;
     height: 100%;
 
-    /*
-       Photo crop nahi hogi.
-       Puri photo card ke andar dikhegi.
-    */
+    display: block;
 
     object-fit: contain;
-
-    display: block;
 
     background: #fafafa;
 }
 
-
-/* =====================================================
-   PRODUCT NAME
-===================================================== */
 
 .product-name {
     width: 100%;
 
     min-height: 48px;
 
-    padding: 11px 10px;
+    padding: 10px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -625,13 +696,10 @@ main {
 }
 
 
-/* =====================================================
-   EMPTY COLLECTION
-===================================================== */
 
-.empty-collection {
-    width: 100%;
+/* ================= LOADING ================= */
 
+.loading-box {
     min-height: 180px;
 
     grid-column: 1 / -1;
@@ -641,32 +709,47 @@ main {
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 10px;
 
-    background: var(--white);
+    background: white;
 
     border: 1px dashed var(--border);
 
     border-radius: 18px;
 
-    color: var(--muted);
+    color: #777;
 }
 
 
-.empty-collection i {
-    font-size: 38px;
-
+.loading-box i {
     color: var(--red);
+
+    font-size: 32px;
+
+    animation: spin 1s linear infinite;
 }
 
 
-/* =====================================================
-   BOTTOM CONTACT
-===================================================== */
+@keyframes spin {
 
-.bottom-contact {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+
+/* ================= BOTTOM ================= */
+
+.bottom-card {
     width: 100%;
 
     margin: 30px 0 45px;
@@ -680,7 +763,7 @@ main {
     background:
         linear-gradient(
             135deg,
-            #fff0f1,
+            #fff0f2,
             #ffffff
         );
 
@@ -688,22 +771,22 @@ main {
 }
 
 
-.bottom-contact h2 {
+.bottom-card h2 {
     color: var(--dark-red);
 
     font-size: 28px;
 }
 
 
-.bottom-contact p {
-    margin-top: 6px;
+.bottom-card p {
+    margin-top: 5px;
 
-    color: var(--muted);
+    color: #777;
 }
 
 
 .bottom-buttons {
-    margin-top: 22px;
+    margin-top: 20px;
 
     display: flex;
 
@@ -713,8 +796,8 @@ main {
 }
 
 
-.call-button,
-.whatsapp-button {
+.bottom-call,
+.bottom-whatsapp {
     padding: 12px 22px;
 
     border-radius: 12px;
@@ -722,52 +805,49 @@ main {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 8px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    color: white;
 }
 
 
-.call-button {
+.bottom-call {
     background: var(--red);
-
-    color: white;
 }
 
 
-.whatsapp-button {
-    background: #25d366;
-
-    color: white;
+.bottom-whatsapp {
+    background: #25a85c;
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+
+/* ================= FOOTER ================= */
 
 footer {
     width: 100%;
 
-    padding: 25px 20px;
+    padding: 25px;
 
     text-align: center;
 
-    color: var(--muted);
+    color: #777;
 
     font-size: 13px;
 
-    border-top: 1px solid var(--border);
+    background: white;
 
-    background: var(--white);
+    border-top: 1px solid var(--border);
 }
 
 
-/* =====================================================
-   TABLET
-===================================================== */
+
+/* ================= TABLET ================= */
 
 @media (max-width: 900px) {
 
@@ -779,18 +859,22 @@ footer {
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
 
-@media (max-width: 650px) {
+/* ================= MOBILE ================= */
 
-    .header-content {
-        padding: 20px 16px;
+@media (max-width: 700px) {
+
+    main {
+        padding: 0 15px;
     }
 
 
-    .brand-icon {
+    .header-inner {
+        padding: 20px 15px;
+    }
+
+
+    .brand-logo {
         width: 48px;
         height: 48px;
 
@@ -800,53 +884,59 @@ footer {
     }
 
 
-    .header-content h1 {
+    .brand-text h1 {
         font-size: 22px;
     }
 
 
-    .header-content p {
-        font-size: 13px;
-    }
-
-
-    main {
-        padding: 0 14px;
-    }
-
-
-    .profile-section {
-        padding-top: 25px;
+    .brand-text p {
+        font-size: 12px;
     }
 
 
     .profile-card {
-        padding: 28px 18px;
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+
+        padding: 25px 18px;
     }
 
 
-    .profile-card h2 {
-        font-size: 24px;
+    .owner-photo-box {
+        width: 165px;
+        height: 190px;
+
+        flex-basis: 190px;
     }
 
 
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .owner-details h2 {
+        font-size: 28px;
     }
 
 
-    .contact-card {
-        padding: 15px;
+    .owner-details h3 {
+        font-size: 17px;
     }
 
 
-    .contact-card strong {
+    .owner-details p {
         font-size: 14px;
     }
 
 
-    .location-card {
-        padding: 15px;
+    .owner-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    .info-grid {
+        grid-template-columns: 1fr;
     }
 
 
@@ -855,17 +945,22 @@ footer {
     }
 
 
-    .section-heading {
+    .section-title {
         gap: 10px;
     }
 
 
-    .section-heading h2 {
+    .section-title h2 {
         font-size: 23px;
     }
 
 
-    .section-heading p {
+    .section-title small {
+        font-size: 9px;
+    }
+
+
+    .section-title p {
         font-size: 12px;
     }
 
@@ -887,18 +982,6 @@ footer {
         font-size: 13px;
 
         min-height: 45px;
-
-        padding: 9px 7px;
-    }
-
-
-    .bottom-contact {
-        padding: 30px 18px;
-    }
-
-
-    .bottom-contact h2 {
-        font-size: 23px;
     }
 
 
@@ -907,24 +990,20 @@ footer {
     }
 
 
-    .call-button,
-    .whatsapp-button {
+    .bottom-call,
+    .bottom-whatsapp {
         width: 100%;
     }
 
 }
 
 
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
 
-@media (max-width: 380px) {
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
 
     .products-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
         gap: 8px;
     }
 
@@ -934,7 +1013,7 @@ footer {
     }
 
 
-    .section-heading h2 {
+    .section-title h2 {
         font-size: 20px;
     }
 
