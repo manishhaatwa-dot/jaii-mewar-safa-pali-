@@ -1,7 +1,6 @@
 /* =====================================================
    JAI MEWAR SAAFA HOUSE
-   Pali, Rajasthan
-   Light Red Wedding Theme
+   RESPONSIVE STYLE
 ===================================================== */
 
 :root {
@@ -9,15 +8,12 @@
     --dark-red: #991f27;
     --light-red: #e34a53;
     --soft-red: #fff1f2;
-    --red-border: #f0b8bc;
-
+    --very-light: #fff8f8;
+    --text: #333333;
+    --muted: #777777;
     --white: #ffffff;
-    --cream: #fffaf9;
-    --text: #3d2929;
-    --muted: #766565;
-
-    --shadow: 0 8px 25px rgba(160, 30, 40, 0.10);
-    --radius: 18px;
+    --border: #f0d8da;
+    --shadow: 0 8px 25px rgba(198, 40, 50, 0.08);
 }
 
 
@@ -31,39 +27,45 @@
     box-sizing: border-box;
 }
 
+
 html {
+    width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: Georgia, "Times New Roman", serif;
 
-    background:
-        radial-gradient(
-            circle at top left,
-            rgba(198, 40, 50, 0.055),
-            transparent 32%
-        ),
-        linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #fff8f8 50%,
-            #fff3f4 100%
-        );
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
 
     color: var(--text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffafa 0%,
+            #ffffff 45%,
+            #fff5f6 100%
+        );
+
     line-height: 1.6;
 }
 
-img {
-    max-width: 100%;
-    display: block;
-}
+
+/* =====================================================
+   LINKS
+===================================================== */
 
 a {
-    text-decoration: none;
     color: inherit;
-    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
 }
 
 
@@ -73,98 +75,28 @@ a {
 
 .site-header {
     width: 100%;
-    min-height: 82px;
-
-    padding: 12px 6%;
-
-    background: rgba(255, 255, 255, 0.97);
-
-    border-bottom: 1px solid rgba(198, 40, 50, 0.14);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
-
-    box-shadow: 0 3px 15px rgba(100, 20, 20, 0.06);
-
-    backdrop-filter: blur(10px);
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
 }
 
 
-/* BRAND */
+.header-content {
+    width: min(1100px, 100%);
+    margin: 0 auto;
 
-.brand {
+    padding: 28px 24px;
+
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 18px;
 }
+
 
 .brand-icon {
-    width: 54px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
 
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #d33a43,
-            #ef7379
-        );
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 28px;
-
-    border: 2px solid #ffffff;
-
-    box-shadow:
-        0 4px 12px rgba(198, 40, 50, 0.18);
-}
-
-.brand-text h1 {
-    color: var(--red);
-
-    font-size: clamp(20px, 3vw, 31px);
-
-    line-height: 1.1;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.8px;
-}
-
-.brand-text p {
-    color: var(--muted);
-
-    font-size: 12px;
-
-    letter-spacing: 0.8px;
-
-    margin-top: 3px;
-}
-
-
-/* HEADER BUTTONS */
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.icon-btn {
-    width: 42px;
-    height: 42px;
+    flex: 0 0 58px;
 
     border-radius: 50%;
 
@@ -172,497 +104,371 @@ a {
     align-items: center;
     justify-content: center;
 
-    color: #ffffff;
-
-    font-size: 19px;
-
-    transition: 0.25s ease;
-}
-
-.icon-btn:hover {
-    transform: translateY(-3px);
-}
-
-.call-btn {
-    background: var(--red);
-}
-
-.whatsapp-btn {
-    background: #20a95a;
-}
-
-.instagram-btn {
     background:
         linear-gradient(
             135deg,
-            #f9ce34,
-            #ee2a7b,
-            #6228d7
+            var(--red),
+            var(--light-red)
         );
+
+    color: white;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(198, 40, 50, 0.22);
+}
+
+
+.header-content h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    color: var(--dark-red);
+}
+
+
+.header-content p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 15px;
 }
 
 
 /* =====================================================
-   OWNER PROFILE
+   MAIN
 ===================================================== */
 
-.owner-section {
-    width: min(1180px, 92%);
+main {
+    width: 100%;
+    max-width: 1100px;
 
-    margin: 35px auto 25px;
+    margin: 0 auto;
 
-    padding: 32px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #ffffff,
-            #fff6f6
-        );
-
-    border: 1px solid var(--red-border);
-
-    border-radius: 24px;
-
-    box-shadow: var(--shadow);
-
-    display: grid;
-
-    grid-template-columns: 230px 1fr;
-
-    align-items: center;
-
-    gap: 35px;
-
-    position: relative;
-
-    overflow: hidden;
+    padding: 0 24px;
 }
 
-.owner-section::before {
-    content: "";
 
-    position: absolute;
+/* =====================================================
+   PROFILE
+===================================================== */
 
-    width: 190px;
-    height: 190px;
+.profile-section {
+    padding: 45px 0 30px;
+}
 
-    border: 2px solid rgba(198, 40, 50, 0.07);
+
+.profile-card {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 35px 25px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 18px;
 
     border-radius: 50%;
 
-    right: -70px;
-    top: -80px;
-
-    pointer-events: none;
-}
-
-.owner-photo {
-    width: 210px;
-    height: 245px;
-
-    margin: auto;
-
-    border-radius: 18px;
-
-    overflow: hidden;
-
-    border: 5px solid #ffffff;
-
-    outline: 2px solid #df777d;
-
-    box-shadow:
-        0 8px 22px rgba(100, 20, 20, 0.16);
-
-    background: #fcebed;
-
-    position: relative;
-}
-
-.owner-photo img,
-.owner-image {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.owner-info {
-    position: relative;
-    z-index: 2;
-}
-
-.small-title {
-    display: inline-block;
-
-    color: var(--red);
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 5px;
-}
-
-.owner-info h2 {
-    color: var(--red);
-
-    font-size: clamp(28px, 4vw, 46px);
-
-    line-height: 1.15;
-}
-
-.owner-business {
-    color: #b83a42;
-
-    font-weight: bold;
-
-    font-size: 20px;
-
-    margin: 5px 0 12px;
-}
-
-.owner-description {
-    max-width: 650px;
-
-    color: var(--muted);
-
-    font-size: 16px;
-}
-
-
-/* OWNER CONTACT */
-
-.quick-contact {
     display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 20px;
-}
-
-.quick-contact a,
-.bottom-buttons a {
-    display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
-    gap: 8px;
+    background: var(--soft-red);
 
-    padding: 11px 20px;
+    color: var(--red);
 
-    border-radius: 30px;
-
-    font-weight: bold;
-
-    transition: 0.25s ease;
+    font-size: 28px;
 }
 
-.quick-contact a:first-child {
-    color: #ffffff;
 
-    background: var(--red);
+.profile-card h2 {
+    font-size: 30px;
+    color: var(--dark-red);
 }
 
-.quick-contact a:last-child {
-    color: #ffffff;
 
-    background: #20a95a;
+.profile-subtitle {
+    margin-top: 4px;
+
+    color: var(--red);
+
+    font-weight: 600;
 }
 
-.quick-contact a:hover,
-.bottom-buttons a:hover {
-    transform: translateY(-3px);
 
-    box-shadow:
-        0 7px 16px rgba(120, 20, 20, 0.15);
+.profile-description {
+    max-width: 650px;
+
+    margin: 12px auto 0;
+
+    color: var(--muted);
 }
 
 
 /* =====================================================
-   INFORMATION CARDS
+   CONTACT
 ===================================================== */
 
-.info-section {
-    width: min(1180px, 92%);
+.contact-grid {
+    width: 100%;
 
-    margin: 25px auto 45px;
+    margin-top: 20px;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
-    gap: 20px;
+    gap: 15px;
 }
 
-.info-card {
-    background: rgba(255, 255, 255, 0.96);
 
-    border: 1px solid var(--red-border);
+.contact-card {
+    min-width: 0;
 
-    border-radius: var(--radius);
+    padding: 18px;
 
-    padding: 25px;
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
 
     display: flex;
+    align-items: center;
 
-    gap: 18px;
+    gap: 12px;
 
-    box-shadow:
-        0 5px 18px rgba(100, 20, 20, 0.07);
+    transition: 0.2s ease;
 }
 
-.info-icon {
-    flex: 0 0 50px;
 
-    width: 50px;
-    height: 50px;
+.contact-card:hover {
+    transform: translateY(-2px);
 
-    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
 
-    background: var(--red);
 
-    color: #ffffff;
+.contact-card > i {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border-radius: 50%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    font-size: 21px;
+    background: var(--soft-red);
+
+    color: var(--red);
 }
 
-.info-card h3 {
+
+.contact-card span {
+    flex: 1;
+
+    min-width: 0;
+
+    font-size: 14px;
+
+    color: var(--muted);
+}
+
+
+.contact-card strong {
+    color: var(--dark-red);
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location-card {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.location-card > i:first-child {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--soft-red);
+
     color: var(--red);
 
-    font-size: 21px;
-
-    margin-bottom: 6px;
+    font-size: 20px;
 }
 
-.info-card p {
+
+.location-card div {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.location-card strong {
+    display: block;
+
+    color: var(--dark-red);
+}
+
+
+.location-card span {
+    display: block;
+
     color: var(--muted);
 
     font-size: 14px;
 }
 
 
-/* CONTACT LINKS */
-
-.contact-links {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin-top: 10px;
-}
-
-.contact-links a {
-    padding: 7px 12px;
-
-    border-radius: 20px;
-
-    background: var(--soft-red);
-
+.location-card > i:last-child {
     color: var(--red);
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    border: 1px solid rgba(198, 40, 50, 0.10);
 }
 
 
 /* =====================================================
-   CLICKABLE LOCATION
+   INSTAGRAM
 ===================================================== */
 
-.location-card {
-    position: relative;
+.instagram-button {
+    width: 100%;
 
-    z-index: 10;
+    margin-top: 15px;
 
-    cursor: pointer;
-
-    pointer-events: auto !important;
-
-    transition: 0.25s ease;
-}
-
-.location-card:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 25px rgba(120, 20, 20, 0.13);
-}
-
-.location-icon {
-    background: var(--red) !important;
-
-    color: #ffffff !important;
-}
-
-.location-icon i {
-    color: #ffffff !important;
-
-    pointer-events: none;
-}
-
-.location-hint {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 6px;
-
-    margin-top: 10px;
-
-    padding: 6px 10px;
+    padding: 15px 20px;
 
     border-radius: 15px;
 
-    background: var(--red);
-
-    color: #ffffff;
-
-    font-size: 12px;
-
-    font-weight: bold;
-}
-
-.location-hint i {
-    color: #ffffff;
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   INSTAGRAM BUTTON
-===================================================== */
-
-.owner-instagram-btn {
-    display: inline-flex;
-
+    display: flex;
     align-items: center;
+    justify-content: center;
 
-    gap: 8px;
+    gap: 10px;
 
-    margin-top: 12px;
-
-    padding: 9px 14px;
-
-    border-radius: 25px;
-
-    color: #ffffff !important;
-
-    background:
-        linear-gradient(
-            45deg,
-            #f58529,
-            #dd2a7b,
-            #8134af,
-            #515bd4
-        );
+    color: white;
 
     font-weight: 600;
 
-    transition: 0.25s ease;
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(225, 48, 108, 0.18);
 }
 
-.owner-instagram-btn i {
-    color: #ffffff !important;
 
-    font-size: 17px;
-}
-
-.owner-instagram-btn:hover {
-    transform: translateY(-2px);
-
-    opacity: 0.9;
+.instagram-button i {
+    font-size: 20px;
 }
 
 
 /* =====================================================
-   SECTION HEADING
+   SECTIONS
 ===================================================== */
 
+.section {
+    width: 100%;
+
+    padding: 40px 0;
+}
+
+
 .section-heading {
-    text-align: center;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
 
     margin-bottom: 25px;
+
+    text-align: center;
 }
 
-.section-heading > span {
-    color: var(--red);
 
-    font-size: 12px;
-
-    font-weight: bold;
-
-    letter-spacing: 3px;
+.section-heading > div {
+    flex: 0 1 auto;
 }
+
 
 .section-heading h2 {
-    color: var(--red);
+    color: var(--dark-red);
 
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: 30px;
 
     line-height: 1.2;
-
-    margin-top: 3px;
 }
+
 
 .section-heading p {
+    margin-top: 5px;
+
     color: var(--muted);
 
-    margin-top: 4px;
-
-    font-size: 15px;
+    font-size: 14px;
 }
 
-.heading-line {
-    width: 75px;
 
-    height: 3px;
+.section-line {
+    height: 1px;
 
-    background: var(--red);
+    flex: 1;
 
-    margin: 10px auto 0;
-
-    position: relative;
-}
-
-.heading-line::before,
-.heading-line::after {
-    content: "◆";
-
-    position: absolute;
-
-    top: -8px;
-
-    color: var(--red);
-
-    font-size: 8px;
-}
-
-.heading-line::before {
-    left: -13px;
-}
-
-.heading-line::after {
-    right: -13px;
+    background: var(--border);
 }
 
 
@@ -670,119 +476,152 @@ a {
    ABOUT
 ===================================================== */
 
-.about-section {
-    width: min(1000px, 92%);
+.about-card {
+    width: 100%;
 
-    margin: 0 auto 55px;
+    padding: 25px;
 
-    padding: 35px;
+    background: var(--white);
 
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #fff2f3
-        );
+    border: 1px solid var(--border);
 
-    border-radius: 22px;
-
-    border: 1px solid var(--red-border);
+    border-radius: 18px;
 
     box-shadow: var(--shadow);
-}
-
-.about-content {
-    max-width: 850px;
-
-    margin: auto;
 
     text-align: center;
 }
 
-.about-content p {
+
+.about-card p {
     color: var(--muted);
 
-    margin: 10px 0;
+    max-width: 850px;
 
-    font-size: 16px;
+    margin: auto;
 }
 
 
 /* =====================================================
-   COLLECTION SECTIONS
+   PRODUCTS GRID
 ===================================================== */
 
-.collection-section {
-    width: min(1200px, 94%);
+.products-grid {
+    width: 100%;
 
-    margin: 0 auto 60px;
-}
-
-.product-grid {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-    gap: 17px;
+    gap: 18px;
+
+    align-items: start;
 }
 
-.product-card {
-    background: #ffffff;
 
-    border-radius: 15px;
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card {
+    width: 100%;
+    min-width: 0;
 
     overflow: hidden;
 
-    border: 1px solid var(--red-border);
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
 
     box-shadow:
-        0 5px 15px rgba(100, 20, 20, 0.07);
+        0 5px 18px
+        rgba(0, 0, 0, 0.05);
 
-    transition: 0.28s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
 
 .product-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
 
     box-shadow:
-        0 12px 25px rgba(100, 20, 20, 0.13);
+        0 12px 28px
+        rgba(198, 40, 50, 0.12);
 }
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
 
 .product-image-wrap {
     width: 100%;
 
-    aspect-ratio: 1 / 1;
+    /*
+       IMPORTANT:
+       Image ka size ab card se bahar nahi jayega.
+    */
 
-    background: #fff0f1;
+    aspect-ratio: 4 / 5;
 
     overflow: hidden;
+
+    background: #fafafa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .product-image {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    /*
+       Photo crop nahi hogi.
+       Puri photo card ke andar dikhegi.
+    */
 
-    transition: transform 0.4s ease;
+    object-fit: contain;
+
+    display: block;
+
+    background: #fafafa;
 }
 
-.product-card:hover .product-image {
-    transform: scale(1.05);
-}
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
 
 .product-name {
-    text-align: center;
-
-    color: var(--red);
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    padding: 12px 8px 14px;
+    width: 100%;
 
     min-height: 48px;
+
+    padding: 11px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--dark-red);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -791,27 +630,35 @@ a {
 ===================================================== */
 
 .empty-collection {
+    width: 100%;
+
+    min-height: 180px;
+
     grid-column: 1 / -1;
 
-    text-align: center;
+    display: flex;
 
-    padding: 35px 20px;
+    flex-direction: column;
 
-    border: 1px dashed rgba(198, 40, 50, 0.28);
+    align-items: center;
+    justify-content: center;
 
-    border-radius: 15px;
+    gap: 10px;
+
+    background: var(--white);
+
+    border: 1px dashed var(--border);
+
+    border-radius: 18px;
 
     color: var(--muted);
-
-    background: rgba(255,255,255,0.65);
 }
 
+
 .empty-collection i {
+    font-size: 38px;
+
     color: var(--red);
-
-    font-size: 30px;
-
-    margin-bottom: 8px;
 }
 
 
@@ -820,69 +667,40 @@ a {
 ===================================================== */
 
 .bottom-contact {
-    margin-top: 20px;
+    width: 100%;
 
-    padding: 55px 20px;
+    margin: 30px 0 45px;
+
+    padding: 40px 25px;
 
     text-align: center;
+
+    border-radius: 22px;
 
     background:
         linear-gradient(
             135deg,
-            #a9252d,
-            #c93640
+            #fff0f1,
+            #ffffff
         );
 
-    color: #ffffff;
-
-    position: relative;
-
-    overflow: hidden;
+    border: 1px solid var(--border);
 }
 
-.bottom-contact::before {
-    content: "✦";
-
-    position: absolute;
-
-    font-size: 180px;
-
-    color: rgba(255,255,255,0.06);
-
-    left: 5%;
-
-    top: -60px;
-
-    pointer-events: none;
-}
-
-.bottom-contact::after {
-    content: "✦";
-
-    position: absolute;
-
-    font-size: 180px;
-
-    color: rgba(255,255,255,0.06);
-
-    right: 5%;
-
-    bottom: -90px;
-
-    pointer-events: none;
-}
 
 .bottom-contact h2 {
-    color: #ffffff;
+    color: var(--dark-red);
 
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: 28px;
 }
+
 
 .bottom-contact p {
-    margin-top: 5px;
+    margin-top: 6px;
 
-    opacity: 0.90;
+    color: var(--muted);
 }
+
 
 .bottom-buttons {
     margin-top: 22px;
@@ -891,31 +709,38 @@ a {
 
     justify-content: center;
 
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    position: relative;
-
-    z-index: 5;
+    gap: 12px;
 }
 
-.bottom-buttons a {
-    background: #ffffff;
 
-    color: var(--red);
+.call-button,
+.whatsapp-button {
+    padding: 12px 22px;
+
+    border-radius: 12px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-weight: 600;
 }
 
-.bottom-buttons .location-btn {
-    background: #b71c26 !important;
 
-    color: #ffffff !important;
+.call-button {
+    background: var(--red);
 
-    border: 2px solid #b71c26;
+    color: white;
 }
 
-.bottom-buttons .location-btn i {
-    color: #ffffff !important;
+
+.whatsapp-button {
+    background: #25d366;
+
+    color: white;
 }
 
 
@@ -924,35 +749,19 @@ a {
 ===================================================== */
 
 footer {
-    background: #63151b;
+    width: 100%;
 
-    color: #f9dfe1;
+    padding: 25px 20px;
 
     text-align: center;
 
-    padding: 25px 15px;
-}
+    color: var(--muted);
 
-.footer-brand {
-    color: #ffffff;
-
-    font-size: 21px;
-
-    font-weight: bold;
-}
-
-footer p {
     font-size: 13px;
 
-    margin: 3px 0 7px;
+    border-top: 1px solid var(--border);
 
-    opacity: 0.8;
-}
-
-footer small {
-    font-size: 11px;
-
-    opacity: 0.65;
+    background: var(--white);
 }
 
 
@@ -962,20 +771,11 @@ footer small {
 
 @media (max-width: 900px) {
 
-    .owner-section {
-        grid-template-columns: 190px 1fr;
-
-        padding: 25px;
+    .products-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
     }
 
-    .owner-photo {
-        width: 175px;
-        height: 215px;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 
@@ -985,216 +785,157 @@ footer small {
 
 @media (max-width: 650px) {
 
-    .site-header {
-        min-height: 70px;
-
-        padding: 9px 4%;
+    .header-content {
+        padding: 20px 16px;
     }
 
-    .brand {
-        gap: 8px;
-    }
 
     .brand-icon {
-        width: 43px;
-        height: 43px;
+        width: 48px;
+        height: 48px;
 
+        flex-basis: 48px;
+
+        font-size: 21px;
+    }
+
+
+    .header-content h1 {
         font-size: 22px;
     }
 
-    .brand-text h1 {
-        font-size: 17px;
 
-        letter-spacing: 0.4px;
-    }
-
-    .brand-text p {
-        font-size: 8px;
-
-        letter-spacing: 0.4px;
-    }
-
-    .header-actions {
-        gap: 5px;
-    }
-
-    .icon-btn {
-        width: 35px;
-        height: 35px;
-
-        font-size: 16px;
-    }
-
-
-    .owner-section {
-        width: 94%;
-
-        margin-top: 20px;
-
-        padding: 20px;
-
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        gap: 20px;
-    }
-
-    .owner-photo {
-        width: 155px;
-        height: 190px;
-    }
-
-    .owner-info h2 {
-        font-size: 28px;
-    }
-
-    .owner-business {
-        font-size: 17px;
-    }
-
-    .owner-description {
-        font-size: 14px;
-    }
-
-    .quick-contact {
-        justify-content: center;
-    }
-
-
-    .info-section {
-        width: 94%;
-
-        grid-template-columns: 1fr;
-
-        gap: 13px;
-
-        margin-bottom: 35px;
-    }
-
-    .info-card {
-        padding: 18px;
-    }
-
-
-    .about-section {
-        width: 94%;
-
-        padding: 25px 18px;
-
-        margin-bottom: 45px;
-    }
-
-    .about-content p {
-        font-size: 14px;
-    }
-
-
-    .collection-section {
-        width: 94%;
-
-        margin-bottom: 45px;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 10px;
-    }
-
-    .product-card {
-        border-radius: 12px;
-    }
-
-    .product-name {
+    .header-content p {
         font-size: 13px;
+    }
 
-        padding: 9px 5px 11px;
 
-        min-height: 40px;
+    main {
+        padding: 0 14px;
+    }
+
+
+    .profile-section {
+        padding-top: 25px;
+    }
+
+
+    .profile-card {
+        padding: 28px 18px;
+    }
+
+
+    .profile-card h2 {
+        font-size: 24px;
+    }
+
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-card {
+        padding: 15px;
+    }
+
+
+    .contact-card strong {
+        font-size: 14px;
+    }
+
+
+    .location-card {
+        padding: 15px;
+    }
+
+
+    .section {
+        padding: 28px 0;
     }
 
 
     .section-heading {
-        margin-bottom: 18px;
+        gap: 10px;
     }
 
+
     .section-heading h2 {
-        font-size: 28px;
+        font-size: 23px;
     }
+
 
     .section-heading p {
         font-size: 12px;
     }
 
 
-    .bottom-contact {
-        padding: 42px 15px;
+    .products-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
     }
+
+
+    .product-image-wrap {
+        aspect-ratio: 1 / 1.15;
+    }
+
+
+    .product-name {
+        font-size: 13px;
+
+        min-height: 45px;
+
+        padding: 9px 7px;
+    }
+
+
+    .bottom-contact {
+        padding: 30px 18px;
+    }
+
+
+    .bottom-contact h2 {
+        font-size: 23px;
+    }
+
 
     .bottom-buttons {
-        gap: 8px;
+        flex-direction: column;
     }
 
-    .bottom-buttons a {
-        padding: 9px 14px;
 
-        font-size: 13px;
+    .call-button,
+    .whatsapp-button {
+        width: 100%;
     }
 
 }
 
 
 /* =====================================================
-   SMALL MOBILE
+   VERY SMALL PHONES
 ===================================================== */
 
-@media (max-width: 390px) {
+@media (max-width: 380px) {
 
-    .brand-text p {
-        display: none;
-    }
+    .products-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-    .brand-text h1 {
-        font-size: 15px;
-    }
-
-    .icon-btn {
-        width: 32px;
-        height: 32px;
-
-        font-size: 14px;
-    }
-
-    .owner-info h2 {
-        font-size: 25px;
-    }
-
-    .product-grid {
         gap: 8px;
     }
+
 
     .product-name {
         font-size: 12px;
     }
 
-}
 
+    .section-heading h2 {
+        font-size: 20px;
+    }
 
-/* =====================================================
-   CLICK SAFETY
-===================================================== */
-
-a {
-    position: relative;
-
-    z-index: 20;
-
-    pointer-events: auto !important;
-
-    cursor: pointer;
-}
-
-a i {
-    pointer-events: none;
 }
