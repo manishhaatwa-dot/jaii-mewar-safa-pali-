@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================================
-       YEAR
-    ========================================= */
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
 
     const yearElement =
         document.getElementById("current-year");
@@ -13,16 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================================
+    /* =====================================================
        GITHUB SETTINGS
-    ========================================= */
+    ===================================================== */
 
     const GITHUB_OWNER =
         "manishhaatwa-dot";
 
     /*
-       Screenshot me exact repository:
-       jaii-mewar-safa-pali-
+       IMPORTANT:
+       Ye GitHub ka actual repository name hai.
+       Website par ye naam kahin display nahi hoga.
     */
 
     const GITHUB_REPO =
@@ -32,24 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
         "main";
 
 
-    /* =========================================
-       GITHUB PRODUCT FOLDERS
-    ========================================= */
+    /* =====================================================
+       PRODUCT FOLDERS
+    ===================================================== */
 
     const categories = {
 
-        saafa: "saafa-products",
+        saafa:
+            "saafa-products",
 
-        wedding: "wedding-products",
+        wedding:
+            "wedding-products",
 
-        jutti: "jutti-products"
+        jutti:
+            "jutti-products"
 
     };
 
 
-    /* =========================================
-       ALLOWED IMAGE FILES
-    ========================================= */
+    /* =====================================================
+       SUPPORTED IMAGE TYPES
+    ===================================================== */
 
     const imageExtensions = [
         ".jpg",
@@ -60,45 +64,40 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
 
-    /* =========================================
+    /* =====================================================
        LOAD PRODUCTS
-    ========================================= */
+    ===================================================== */
 
     async function loadProducts() {
 
-        for (const folder in categories) {
+        for (const category in categories) {
 
             const container =
                 document.getElementById(
-                    categories[folder]
+                    categories[category]
                 );
 
 
             if (!container) {
-
-                console.error(
-                    "HTML container missing:",
-                    categories[folder]
-                );
-
                 continue;
             }
 
 
             try {
 
+                /*
+                   GitHub API se folder ki
+                   complete file list lenge.
+                */
+
                 const apiUrl =
-                    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/assets/products/${folder}?ref=${GITHUB_BRANCH}`;
-
-
-                console.log(
-                    "GitHub loading:",
-                    apiUrl
-                );
+                    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/assets/products/${category}?ref=${GITHUB_BRANCH}`;
 
 
                 const response =
-                    await fetch(apiUrl);
+                    await fetch(apiUrl, {
+                        cache: "no-store"
+                    });
 
 
                 if (!response.ok) {
@@ -114,59 +113,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     await response.json();
 
 
-                console.log(
-                    folder,
-                    "files:",
-                    files
-                );
-
-
                 /*
-                   Folder ke andar jo bhi image hogi:
-                   Hindi
-                   English
-                   Number
-                   Space
-                   Underscore
-                   etc.
-
-                   sab automatically load hogi.
+                   Sirf image files
                 */
 
                 const images =
                     files.filter(file => {
 
-                        if (
-                            file.type !== "file"
-                        ) {
-                            return false;
-                        }
-
-
-                        if (!file.name) {
-                            return false;
-                        }
-
-
-                        const filename =
-                            file.name.toLowerCase();
-
-
-                        return imageExtensions.some(
-                            extension =>
-                                filename.endsWith(
-                                    extension
-                                )
+                        return (
+                            file.type === "file" &&
+                            imageExtensions.some(ext =>
+                                file.name
+                                    .toLowerCase()
+                                    .endsWith(ext)
+                            )
                         );
 
                     });
-
-
-                console.log(
-                    folder,
-                    "images found:",
-                    images.length
-                );
 
 
                 renderProducts(
@@ -174,26 +137,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     images
                 );
 
-            }
 
-
-            catch (error) {
+            } catch (error) {
 
                 console.error(
-                    "PRODUCT LOAD ERROR:",
-                    folder,
+                    `Error loading ${category}:`,
                     error
                 );
 
 
                 container.innerHTML = `
+
                     <div class="empty-collection">
+
                         <i class="fa-regular fa-images"></i>
 
                         <p>
                             Collection coming soon
                         </p>
+
                     </div>
+
                 `;
 
             }
@@ -203,9 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================================
-       RENDER PRODUCTS
-    ========================================= */
+
+    /* =====================================================
+       DISPLAY PRODUCTS
+    ===================================================== */
 
     function renderProducts(
         container,
@@ -215,30 +180,39 @@ document.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = "";
 
 
-        if (
-            !images ||
-            images.length === 0
-        ) {
+        /*
+           Folder empty hai
+        */
+
+        if (!images.length) {
 
             container.innerHTML = `
+
                 <div class="empty-collection">
+
                     <i class="fa-regular fa-images"></i>
 
                     <p>
                         Collection coming soon
                     </p>
+
                 </div>
+
             `;
 
             return;
         }
 
 
+
+        /* =================================================
+           EACH IMAGE
+        ================================================= */
+
         images.forEach(file => {
 
-            /* =================================
-               PRODUCT CARD
-            ================================= */
+
+            /* ================= CARD ================= */
 
             const card =
                 document.createElement("div");
@@ -247,9 +221,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "product-card";
 
 
-            /* =================================
-               IMAGE WRAPPER
-            ================================= */
+
+            /* ================= IMAGE WRAPPER ================= */
 
             const imageWrap =
                 document.createElement("div");
@@ -258,9 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "product-image-wrap";
 
 
-            /* =================================
-               IMAGE
-            ================================= */
+
+            /* ================= IMAGE ================= */
 
             const image =
                 document.createElement("img");
@@ -270,8 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /*
-               GitHub API ka download_url.
-               Hindi filename ke liye bhi safe.
+               GitHub API ka download_url use karenge.
+
+               Isse Hindi filename bhi properly
+               load hoga.
             */
 
             image.src =
@@ -282,55 +256,73 @@ document.addEventListener("DOMContentLoaded", () => {
                 "lazy";
 
 
-            /* =================================
+            image.decoding =
+                "async";
+
+
+
+            /* =================================================
                PRODUCT NAME
-            ================================= */
+               Filename se automatically
+               ================================================= */
 
             let productName =
                 file.name
-                    .replace(
-                        /\.[^/.]+$/,
-                        ""
-                    )
-                    .replace(
-                        /[-_]+/g,
-                        " "
-                    )
-                    .replace(
-                        /\s+/g,
-                        " "
-                    )
+                    .replace(/\.[^/.]+$/, "")
+                    .replace(/[-_]+/g, " ")
+                    .replace(/\s+/g, " ")
                     .trim();
+
+
+
+            /*
+               English filename ke first letters
+               capital honge.
+
+               Hindi filename par iska koi
+               unwanted effect nahi hoga.
+            */
+
+            productName =
+                productName.replace(
+                    /\b[a-z]/g,
+                    letter => letter.toUpperCase()
+                );
+
 
 
             image.alt =
                 `${productName} - Jai Mewar Saafa House Pali`;
 
 
-            /* =================================
+
+            /* =================================================
                IMAGE ERROR
-            ================================= */
+            ================================================= */
 
             image.onerror = () => {
 
                 imageWrap.innerHTML = `
-                    <div
-                        style="
-                            width:100%;
-                            height:100%;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            background:#fff1f2;
-                            color:#c62832;
-                            font-size:35px;
-                        "
-                    >
+
+                    <div style="
+                        width:100%;
+                        height:100%;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        color:#c6284a;
+                        background:#fce1e7;
+                        font-size:35px;
+                    ">
+
                         <i class="fa-regular fa-image"></i>
+
                     </div>
+
                 `;
 
             };
+
 
 
             imageWrap.appendChild(
@@ -338,9 +330,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-            /* =================================
-               NAME
-            ================================= */
+
+            /* =================================================
+               PRODUCT NAME
+            ================================================= */
 
             const name =
                 document.createElement("div");
@@ -352,9 +345,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 productName;
 
 
-            /* =================================
-               CARD
-            ================================= */
+
+            /* =================================================
+               ADD CARD
+            ================================================= */
 
             card.appendChild(
                 imageWrap
@@ -373,14 +367,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================================
+
+    /* =====================================================
        START
-    ========================================= */
-
-    console.log(
-        "Jai Mewar script.js connected successfully."
-    );
-
+    ===================================================== */
 
     loadProducts();
 
