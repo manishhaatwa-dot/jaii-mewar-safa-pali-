@@ -12,16 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ===============================
-       GITHUB SETTINGS
+       GITHUB
     =============================== */
 
     const GITHUB_OWNER = "manishhaatwa-dot";
-    const GITHUB_REPO = "jaii-mewar-safa-pali";
+    const GITHUB_REPO = "jai-mewar-safa-pali";
     const GITHUB_BRANCH = "main";
 
 
     /* ===============================
-       COLLECTIONS
+       PRODUCT FOLDERS
     =============================== */
 
     const categories = {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ===============================
-       IMAGE TYPES
+       IMAGE EXTENSIONS
     =============================== */
 
     const imageExtensions = [
@@ -50,23 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadProducts() {
 
-        for (const category in categories) {
+        for (const folder in categories) {
 
             const container =
-                document.getElementById(categories[category]);
+                document.getElementById(categories[folder]);
 
-            if (!container) {
-                continue;
-            }
+            if (!container) continue;
 
 
             try {
 
                 const apiUrl =
-                    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/assets/products/${category}?ref=${GITHUB_BRANCH}`;
-
-
-                console.log("Loading:", apiUrl);
+                    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/assets/products/${folder}?ref=${GITHUB_BRANCH}`;
 
 
                 const response =
@@ -74,11 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 if (!response.ok) {
-
                     throw new Error(
-                        `GitHub API Error: ${response.status}`
+                        `GitHub Error: ${response.status}`
                     );
-
                 }
 
 
@@ -86,27 +79,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     await response.json();
 
 
-                const images =
-                    files.filter(file => {
+                /*
+                   Folder ke andar jo bhi
+                   Hindi / English filename ho,
+                   automatically image milegi.
+                */
 
-                        return (
-                            file.type === "file" &&
-                            file.name &&
-                            imageExtensions.some(ext =>
-                                file.name
-                                    .toLowerCase()
-                                    .endsWith(ext)
-                            )
-                        );
+                const images = files.filter(file => {
 
-                    });
+                    if (file.type !== "file") {
+                        return false;
+                    }
 
+                    if (!file.name) {
+                        return false;
+                    }
 
-                console.log(
-                    `${category}:`,
-                    images.length,
-                    "images found"
-                );
+                    const lowerName =
+                        file.name.toLowerCase();
+
+                    return imageExtensions.some(ext =>
+                        lowerName.endsWith(ext)
+                    );
+
+                });
 
 
                 renderProducts(
@@ -118,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } catch (error) {
 
                 console.error(
-                    `Error loading ${category}:`,
+                    `Error loading ${folder}:`,
                     error
                 );
 
@@ -138,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ===============================
-       RENDER PRODUCTS
+       DISPLAY PRODUCTS
     =============================== */
 
     function renderProducts(
@@ -149,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = "";
 
 
-        if (!images.length) {
+        if (images.length === 0) {
 
             container.innerHTML = `
                 <div class="empty-collection">
@@ -176,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* =========================
-               IMAGE WRAPPER
+               IMAGE
             ========================= */
 
             const imageWrap =
@@ -185,10 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
             imageWrap.className =
                 "product-image-wrap";
 
-
-            /* =========================
-               IMAGE
-            ========================= */
 
             const image =
                 document.createElement("img");
@@ -199,7 +191,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             /*
                GitHub API ka download_url
-               Hindi filenames ke liye safe hai.
+               use kar rahe hain.
+
+               Isse Hindi filenames bhi
+               properly load honge.
             */
 
             image.src =
@@ -211,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* =========================
-               PRODUCT NAME
+               FILE NAME → PRODUCT NAME
             ========================= */
 
             let productName =
@@ -239,8 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         display:flex;
                         align-items:center;
                         justify-content:center;
-                        color:#c62832;
                         background:#fff1f2;
+                        color:#c62832;
                         font-size:35px;
                     ">
                         <i class="fa-regular fa-image"></i>
@@ -254,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* =========================
-               NAME
+               PRODUCT NAME
             ========================= */
 
             const name =
@@ -268,21 +263,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* =========================
-               ADD TO CARD
+               CARD COMPLETE
             ========================= */
 
-            card.appendChild(
-                imageWrap
-            );
+            card.appendChild(imageWrap);
 
-            card.appendChild(
-                name
-            );
+            card.appendChild(name);
 
-
-            container.appendChild(
-                card
-            );
+            container.appendChild(card);
 
         });
 
