@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const categories = {
 
-        saafa:
-            "saafa-products",
+        safa:
+            "safa-products",
 
         wedding:
             "wedding-products",
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             image.alt =
-                `${productName} - Jai Mewar Saafa House Pali`;
+                `${productName} - Jai Mewar safa House Pali`;
 
 
 
